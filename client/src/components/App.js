@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Login from './Login';
+import Dashboard from './Dashboard';
+import useLocalStorage from '../hooks/useLocalStorage';
 //import io from 'socket.io-client';
 
 function App() {
-  const [id, setId] = useState('');
+  const [id, setId] = useLocalStorage('id');
   return (
-    <>
-      {id}
-      <Login onIdSubmit={setId} />
-    </>
-  );
-}
+    id ? <Dashboard id={id} /> : <Login onIdSubmit={setId} />
+  )
+};
 
 export default App;
