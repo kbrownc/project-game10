@@ -3,6 +3,8 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { ContactsProvider } from '../contexts/ContactsProvider';
+import { ConversationsProvider } from '../contexts/ConversationsProvider';
+
 //import io from 'socket.io-client';
 
 function App() {
@@ -10,7 +12,9 @@ function App() {
 
   const dashboard = (
       <ContactsProvider>
-        <Dashboard id={id} />
+        <ConversationsProvider>
+          <Dashboard id={id} />
+        </ConversationsProvider>
       </ContactsProvider>
     )
 
