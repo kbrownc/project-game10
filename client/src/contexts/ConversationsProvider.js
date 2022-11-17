@@ -27,7 +27,8 @@ export function ConversationsProvider({ id, children }) {
         if (arrayEquality(conversation.recipients, recipients)) {
           madeChange = true 
           return { 
-            ...conversation, messages: [conversation.messages, newMessage]}
+            ...conversation, messages: [...conversation.messages, newMessage]
+          }
         }
         return conversation
       })
