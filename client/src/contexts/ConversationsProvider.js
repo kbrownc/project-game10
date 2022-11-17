@@ -45,7 +45,7 @@ export function ConversationsProvider({ id, children }) {
     addMessageToConversation({ recipients, text, sender: id })
   }
 
-  const formattedConversations = conversations.map(( conversation, index) => {
+  const formattedConversations = conversations !== null && conversations.map(( conversation, index) => {
     const recipients = conversation.recipients.map(recipient => {
       const contact = contacts.find(contact => {
         return contact.id === recipient
