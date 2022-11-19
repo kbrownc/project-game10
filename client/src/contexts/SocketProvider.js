@@ -16,6 +16,7 @@ export function SocketProvider({ id, children}) {
       { query: { id }}
     )
     setSocket(newSocket)
+    
     return () => newSocket.close()
   }, [id])
 

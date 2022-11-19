@@ -4,13 +4,13 @@ const io = require('socket.io')(5000,{
 		origin: '*',
 	}
 })
-// const cors = require('cors');
 
 io.on('connection', socket => {
 	const id = socket.handshake.query.id
 	socket.join(id)
 
 	socket.on('send-message', ({ receipients, text }) => {
+		console.log('server recipients', receipients)
 		receipients.forEach(receipient => {
 			const newRecipients = receipients.filter(r => r !== recipient)
 			newRecipients.push(id)

@@ -49,7 +49,7 @@ export function ConversationsProvider({ id, children }) {
   }, [setConversations])
 
   useEffect(() => {
-    if (socket == null) return
+    if (socket == null || socket === undefined) return
 
     socket.on('receive-message', addMessageToConversation)
 
@@ -57,12 +57,13 @@ export function ConversationsProvider({ id, children }) {
   }, [socket, addMessageToConversation])
 
   function sendMessage(recipients, text) {
+    console.log('client recipients', recipients)
     socket.emit('send-message', { recipients, text })
 
     addMessageToConversation({ recipients, text, sender: id })
   }
 
-  const formattedConversations = conversations.map((conversation, index) => {
+  const formattedConversations = conversations !== null && conversations.map((conversation, index) => {
     const recipients = conversation.recipients.map(recipient => {
       const contact = contacts.find(contact => {
         return contact.id === recipient
