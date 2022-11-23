@@ -45,7 +45,7 @@ export default function OpenConversation() {
         </div>
       </div>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="m-2">
+        <Form.Group className="ms-1">
           <InputGroup>
             <Form.Control
               as="textarea"
@@ -54,10 +54,11 @@ export default function OpenConversation() {
               onChange={e => setText(e.target.value)}
               style={{ height: '75px', resize: 'none' }}
             />
-            <InputGroup>
+            
+          </InputGroup>
+          <InputGroup>
               <Button type="submit">Send</Button>
             </InputGroup>
-          </InputGroup>
         </Form.Group>
       </Form>
     </div>
