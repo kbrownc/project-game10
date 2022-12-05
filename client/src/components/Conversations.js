@@ -7,7 +7,7 @@ function Conversations() {
   
   return (
     <ListGroup variant="flush">
-      {conversations.map(conversation => (
+      {conversations.map((conversation, index) => (
         <ListGroup.Item
           key="{conversation}"
           action
