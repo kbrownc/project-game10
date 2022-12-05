@@ -7,9 +7,9 @@ function Conversations() {
   
   return (
     <ListGroup variant="flush">
-      {conversations.map((conversation, index) => (
+      {conversations.map(conversation => (
         <ListGroup.Item
-          key={index}
+          key="{conversation}"
           action
           onClick={() => selectConversationIndex(index)}
           active={conversation.selected}

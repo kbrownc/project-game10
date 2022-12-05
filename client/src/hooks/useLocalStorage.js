@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const PREFIX = 'cribbage-board-';
+const PREFIX = 'game10-';
 
 function useLocalStorage( key, initialValue) {
   const prefixedKey = PREFIX + key;
